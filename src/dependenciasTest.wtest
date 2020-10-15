@@ -1,0 +1,49 @@
+import dependencias.*
+import rodados.*
+
+test "deportes" {
+	//45 empleados
+	const cachito = new Corsa(color = "rojo")
+	const corsitaAzul = new Corsa(color = "azul")
+	const corsitaVerde = new Corsa(color = "verde")
+	const kwidConTanque1 = new Kwid(tieneTanqueExtra = true)
+	const fititoEspecial = new AutoEspecial(capacidad = 5, velMax = 160, peso = 1200, color = "beige")
+	
+	const dependenciaDeportes = new Dependencia(empleados = 45)
+	dependenciaDeportes.agregarAFlota(cachito)
+	dependenciaDeportes.agregarAFlota(corsitaAzul)
+	dependenciaDeportes.agregarAFlota(corsitaVerde)
+	dependenciaDeportes.agregarAFlota(kwidConTanque1)
+	dependenciaDeportes.agregarAFlota(fititoEspecial)
+	
+	assert.equals(6450, dependenciaDeportes.pesoTotalFlota())
+	assert.that(dependenciaDeportes.estaBienEquipada())
+	assert.equals(4, dependenciaDeportes.capacidadTotalEnColor("azul"))
+	assert.equals("beige", dependenciaDeportes.colorDelRodadoMasRapido())
+	assert.that(dependenciaDeportes.esGrande())
+	assert.equals(25, dependenciaDeportes.capacidadFaltante())
+}
+
+test "cultura" {
+	//31 empleados
+	const cachito = new Corsa(color = "rojo")//Pertenece a ambas dependencias
+	const kwidConTanque2 = new Kwid(tieneTanqueExtra = true)
+	const kwidConTanque3 = new Kwid(tieneTanqueExtra = true)
+	const kwidSinTanque1 = new Kwid(tieneTanqueExtra = false)
+	trafic.interior("popular")
+	trafic.motor("bataton")
+	
+	const dependenciaCultura = new Dependencia(empleados = 31)
+	dependenciaCultura.agregarAFlota(cachito)
+	dependenciaCultura.agregarAFlota(kwidConTanque2)
+	dependenciaCultura.agregarAFlota(kwidConTanque3)
+	dependenciaCultura.agregarAFlota(kwidSinTanque1)
+	dependenciaCultura.agregarAFlota(trafic)
+	
+	assert.equals(10700, dependenciaCultura.pesoTotalFlota())
+	assert.notThat(dependenciaCultura.estaBienEquipada())
+	assert.equals(10, dependenciaCultura.capacidadTotalEnColor("azul"))
+	assert.equals("rojo", dependenciaCultura.colorDelRodadoMasRapido())
+	assert.notThat(dependenciaCultura.esGrande())
+	assert.equals(5, dependenciaCultura.capacidadFaltante())
+}

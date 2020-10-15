@@ -1,0 +1,17 @@
+//No darle bola a esto (no borrar)
+
+import rodados.*
+
+test "rodadosTest1" {
+
+	
+	const chevroletCorsa1 = new Rodado(color = "negro", esAGas = false)
+	const chevroletCorsa2 = new Rodado(color = "blanco", esAGas = false)
+	const chevroletCorsa3 = new Rodado(color = "gris", esAGas = false)
+	const chevroletCorsa4 = new Rodado(color = "rojo", esAGas = false)
+	
+	const renaultKwid1 = new Rodado(velMax = 120, peso = 1300, color = "negro")
+	const renaultKwid2 = new Rodado(velMax = 150, peso = 1300, color = "negro")
+	const renaultKwid3 = new Rodado(velMax = 150, peso = 1300, color = "negro")
+	const renaultKwid4 = new Rodado(velMax = 150, peso = 1300, color = "negro")
+}

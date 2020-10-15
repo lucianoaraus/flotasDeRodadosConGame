@@ -1,7 +1,26 @@
 import wollok.game.*
+import rodados.*
+
+const cachito = new Corsa( color = "rojo" )
+
 
 program corsasEnElGame {
-	// hacer las inicializaciones necesarias 
+	
+	game.title("Corsas por doquier")
+	
+	game.height(10)
+	game.width(10)
+	
+	game.addVisual(cachito)
+	
+	keyboard.up().onPressDo{cachito.moverArriba()}
+	keyboard.down().onPressDo{cachito.moverAbajo()}
+	keyboard.left().onPressDo{cachito.moverALaIzquierda()}
+	keyboard.right().onPressDo{cachito.moverALaDerecha()}
+	keyboard.r().onPressDo{cachito.image("autitorojo.png") && cachito.color("rojo")}
+	keyboard.a().onPressDo{cachito.image("autitoazul.png") && cachito.color("azul")}
+	keyboard.m().onPressDo{cachito.image("autitoamarillo.png") && cachito.color("amarillo")}
+	keyboard.n().onPressDo{cachito.image("autitonegro.png") && cachito.color("negro")}
 	
 	game.start()
 }
